@@ -1,0 +1,288 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #c59645;
+}
+
+.logo img {
+    height: 130px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    color: #A56800;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Articles Grid */
+.articles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 2rem;
+}
+
+.featured {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+article {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: white;
+    transition: transform 0.2s;
+}
+
+article:hover {
+    transform: scale(1.02);
+}
+
+/* Article Image Styles */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.featured .image-wrapper {
+    height: 300px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper img:hover {
+    transform: scale(1.05);
+}
+
+.category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #A56800;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 3px;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(240, 240, 240, 0.7);
+    color: #333;
+    padding: 2px 5px;
+    font-size: 0.7rem;
+    border-radius: 3px;
+}
+
+/* Article Content Styles */
+.content {
+    padding: 1rem;
+    text-align: left;
+}
+
+.content h2 {
+    color: #A56800;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.read-more {
+    color: #003DA5;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Pagination Styles */
+.pagination ul {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.pagination ul li a {
+    color: #003DA5;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #003DA5;
+    border-radius: 5px;
+}
+
+.pagination ul li a:hover {
+    background: #003DA5;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #c59645;
+    color: white;
+    padding: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-logo {
+    width: 250px;
+}
+
+.social-links a {
+    margin: 0;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+/* Separadores (barras verticales) */
+.link-separator {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .articles {
+        grid-template-columns: 1fr;
+    }
+
+    .featured {
+        grid-column: span 1;
+    }
+
+    .featured .image-wrapper {
+        height: 200px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-left {
+        align-items: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .link {
+        display: inline-block;
+        margin: 5px 0;
+    }
+
+    /* Ocultar separadores en pantallas pequeñas */
+    .link-separator {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-container {
+        gap: 1rem;
+    }
+
+    .footer-left,
+    .footer-right {
+        text-align: center;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+
+    .link {
+        display: block;
+        margin: 5px 0;
+    }
+}
