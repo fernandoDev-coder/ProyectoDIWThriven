@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renting de Coches Clásicos</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/css/renting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/logo.svg" alt="Logo Thriven">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li style="color: white;     font-size: 1.4rem;">|</li>
+                <li><a href="videos.html">Vídeos</a></li>
+                <li style="color: white;     font-size: 1.4rem;">|</li>
+                <li><a href="renting.html">Renting</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Renting -->
+    <main>
+        <section class="renting-container">
+            <h1 class="renting-title">Renting de Coches Clásicos</h1>
+            <div class="car-carousel"></div>
+            <div class="carousel-buttons">
+                <button id="prevButton" class="custom-carousel-button">Anterior</button>
+                <button id="nextButton" class="custom-carousel-button">Siguiente</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="/img/logo.svg" alt="Logo Thriven" class="footer-logo">
+                <p>Curso 2023-2024 | Fernando Lara Millán</p> <!-- Mensaje debajo del logo -->
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="#"><img src="/img/icon-instagram.svg" alt="Instagram" style="width: 30px;"></a>
+                    <a href="#"><img src="/img/icon-twitter.svg" alt="Twitter" style="width: 30px;"></a>
+                    <a href="#"><img src="/img/icon-youtube.svg" alt="YouTube" style="width: 30px;"></a>
+                </div>
+                <p>
+                    <a href="#" class="link">Política de privacidad</a>
+                    <span class="link-separator">|</span>
+                    <a href="#" class="link">Política de cookies</a>
+                    <span class="link-separator">|</span>
+                    <a href="#" class="link">Aviso legal</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carrusel = document.querySelector(".car-carousel");
+
+            // Obtener coches desde JSON
+            fetch("coches.json")
+                .then(response => response.json())
+                .then(coches => {
+                    coches.forEach((coche, index) => {
+                        const alquilado = localStorage.getItem(`coche-${index}`) === "true";
+                        const cocheHTML = `
+                            <div class="car-item ${alquilado ? 'alquilado' : ''}" data-index="${index}">
+                                <img src="${coche.imagen}" alt="${coche.modelo}">
+                                <h3>${coche.modelo}</h3>
+                                <p>Año: ${coche.año} | Precio: ${coche.precio}€/día</p>
+                                <button class="rent-button" ${alquilado ? 'disabled' : ''}>
+                                    ${alquilado ? 'Alquilado' : 'Alquilar'}
+                                </button>
+                            </div>
+                        `;
+                        carrusel.innerHTML += cocheHTML;
+                    });
+
+                    // Inicializar Slick Carousel
+                    $(".car-carousel").slick({
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 2500,
+                        dots: false,
+                        arrows: false,
+                        responsive: [
+                            {
+                                breakpoint: 1024,
+                                settings: { slidesToShow: 2 }
+                            },
+                            {
+                                breakpoint: 768,
+                                settings: { slidesToShow: 1 }
+                            }
+                        ]
+                    });
+
+                    // Agregar funcionalidad a los botones personalizados
+                    document.getElementById('prevButton').addEventListener('click', function () {
+                        $(".car-carousel").slick('slickPrev');
+                    });
+
+                    document.getElementById('nextButton').addEventListener('click', function () {
+                        $(".car-carousel").slick('slickNext');
+                    });
+                })
+                .catch(error => console.error("Error cargando coches:", error));
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+[
+    {
+        "imagen": "/img/ford_mustang_1967.jpg",
+        "modelo": "Ford Mustang 1967",
+        "año": 1967,
+        "precio": 350
+    },
+    {
+        "imagen": "/img/chevrolet_camaro_1969.jpg",
+        "modelo": "Chevrolet Camaro 1969",
+        "año": 1969,
+        "precio": 400
+    },
+    {
+        "imagen": "/img/jaguar_e_type_1961.jpg",
+        "modelo": "Jaguar E-Type 1961",
+        "año": 1961,
+        "precio": 500
+    },
+    {
+        "imagen": "/img/mercedes_300sl_1957.jpg",
+        "modelo": "Mercedes-Benz 300SL 1957",
+        "año": 1957,
+        "precio": 700
+    },
+    {
+        "imagen": "/img/porsche_356_1955.jpg",
+        "modelo": "Porsche 356 1955",
+        "año": 1955,
+        "precio": 650
+    }
+]

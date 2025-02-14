@@ -1,0 +1,269 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #c59645;
+}
+
+.logo img {
+    height: 130px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Renting Section */
+.renting-container {
+    padding: 2rem;
+    text-align: center;
+}
+
+.renting-title {
+    font-size: 2rem;
+    color: #003DA5;
+    margin-bottom: 1rem;
+}
+
+/* Carrusel de coches */
+.car-carousel {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.car-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-item:hover {
+    transform: scale(1.03);
+}
+
+/* Tamaño estándar para imágenes */
+.car-item img {
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.car-item h3 {
+    color: #003DA5;
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.car-item p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Botones estilo index.css */
+.rent-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background: #003DA5;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.rent-button:hover {
+    background: #002A80;
+    transform: scale(1.05);
+}
+
+/* Elimina flechas de Slick Carousel */
+.slick-prev, .slick-next {
+    display: none !important;
+}
+
+/* Elimina los puntos debajo del carrusel */
+.slick-dots {
+    display: none !important;
+}
+
+/* Botones personalizados debajo del carrusel */
+.carousel-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.custom-carousel-button {
+    padding: 10px 20px;
+    background: #003DA5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.custom-carousel-button:hover {
+    background: #002A80;
+    transform: scale(1.05);
+}
+
+/* Estado de coche alquilado */
+.car-item.alquilado {
+    opacity: 0.6;
+}
+
+.car-item .rent-button:disabled {
+    background: #888;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Footer */
+footer {
+    background: #c59645;
+    color: white;
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-logo {
+    width: 250px;
+}
+
+.social-links a {
+    margin: 0;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.link-separator {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .car-carousel {
+        width: 90%;
+    }
+
+    .renting-title {
+        font-size: 1.8rem;
+    }
+
+    .car-item img {
+        max-width: 280px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .car-carousel {
+        width: 95%;
+    }
+
+    .renting-title {
+        font-size: 1.5rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        align-items: center;
+    }
+
+    .car-item img {
+        max-width: 250px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .car-item img {
+        max-width: 220px;
+        height: 140px;
+    }
+
+    .rent-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
